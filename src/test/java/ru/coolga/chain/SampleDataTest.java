@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Add some comments here...
+ * JUnit test for checking test data
  *
- * @author: Dmitry Coolga
- * Date:    30.12.2012 10:08 PM
+ * @author Dmitry Coolga
+ *         30.12.2012 10:08 PM
  */
 public class SampleDataTest extends TestBase {
 

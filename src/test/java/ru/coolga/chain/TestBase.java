@@ -9,10 +9,10 @@ import org.junit.BeforeClass;
 import java.sql.*;
 
 /**
- * Add some comments here...
+ * Provides basis for query test
  *
- * @author: Dmitry Coolga
- * Date:    30.12.2012 8:52 PM
+ * @author Dmitry Coolga
+ *         30.12.2012 8:52 PM
  */
 public class TestBase {
 

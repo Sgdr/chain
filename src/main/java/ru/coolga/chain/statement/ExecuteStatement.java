@@ -7,10 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * Add some comments here...
+ * Executes query with no explicit output (such as delete, update and insert)
  *
- * @author: Dmitry Coolga
- * Date:    31.12.2012 11:21 AM
+ * @author Dmitry Coolga
+ *         31.12.2012 11:21 AM
  */
 public class ExecuteStatement extends StatementBase implements ExecuteClause {
 

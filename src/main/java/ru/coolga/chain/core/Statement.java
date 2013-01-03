@@ -1,17 +1,25 @@
 package ru.coolga.chain.core;
 
 /**
- * Add some comments here...
+ * Available query statements
  *
- * @author: Dmitry Coolga
- * Date:    31.12.2012 10:10 AM
+ * @author Dmitry Coolga
+ *         31.12.2012 10:10 AM
  */
 public enum Statement {
 
-    EXECUTE_WHERE,
-    EXECUTE_RELATION,
+    WHERE,
+    RELATION,
     EXECUTE,
     COUNT,
-    EXISTS
+    EXISTS,
+    SELECT,
+    SELECT_SINGLE,
+    COLUMN_SELECT,
+    COLUMN_UPDATE,
+    COLUMN_INSERT,
+    SET,
+    INSERT_COLUMNS,
+    INSERT_VALUES
 
 }

@@ -5,17 +5,20 @@ import ru.coolga.chain.core.ChainSqlException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Checks the existence for a record into the table
+ * Selects single record from table
  *
  * @author Dmitry Coolga
- *         02.01.2013 11:00 PM
+ *         03.01.2013 10:48 AM
  */
-public class ExistsStatement extends StatementBase implements QueryClause<Boolean> {
+public class SelectSingleStatement extends StatementBase implements QueryClause<Map<String, Object>> {
 
-    public Boolean get() {
+    public Map<String, Object> get() {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -23,9 +26,9 @@ public class ExistsStatement extends StatementBase implements QueryClause<Boolea
             injectParameters(statement);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                return resultSet.getInt(1) > 0;
+                return handleResults(resultSet);
             } else {
-                throw new ChainSqlException("Bad query to check existence : {0}", query());
+                throw new ChainSqlException("Bad query to count rows : {0}", query());
             }
 
         } catch(SQLException ex) {
@@ -47,6 +50,20 @@ public class ExistsStatement extends StatementBase implements QueryClause<Boolea
             }
 
         }
+    }
+
+    private Map<String, Object> handleResults(ResultSet resultSet) throws SQLException {
+        ResultSetMetaData meta = resultSet.getMetaData();
+        Map<String, Object> result = new HashMap<String, Object>();
+        for (int index = 1; index <= meta.getColumnCount(); index++) {
+            result.put(meta.getColumnName(index), resultSet.getObject(index));
+        }
+        if (getExcluded() != null) {
+            for (String column : getExcluded()) {
+                result.remove(column);
+            }
+        }
+        return result;
     }
 
 }

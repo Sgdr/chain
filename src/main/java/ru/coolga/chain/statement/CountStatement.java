@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Add some comments here...
+ * Count record number
  *
  * @author Dmitry Coolga
  *         02.01.2013 10:01 PM

@@ -1,10 +1,10 @@
 package ru.coolga.chain.core;
 
 /**
- * Add some comments here...
+ * Defines the way to switch between query statements
  *
- * @author: Dmitry Coolga
- * Date:    31.12.2012 4:50 PM
+ * @author Dmitry Coolga
+ *         31.12.2012 4:50 PM
  */
 public interface StatementSwitcher {
 
