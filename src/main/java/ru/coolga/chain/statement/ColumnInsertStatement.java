@@ -32,6 +32,8 @@ public class ColumnInsertStatement extends StatementBase implements ColumnInsert
         return next(Statement.EXECUTE);
     }
 
+	// Where is comment?
+
     public ExecuteClause exclude(String... columns) {
         query().append(" ( ");
         int columnCount = 0;
